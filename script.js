@@ -2,7 +2,8 @@ async function comprar(courseId) {
   const email = prompt("Ingresá tu correo para recibir el curso:");
   if (!email) return alert("Necesitamos un correo para enviarte el contenido.");
 
-  const res = await fetch("https://backend-hcc8.onrender.com/", {
+  const res = await fetch("const res = await fetch("https://backend-hcc8.onrender.com/create-preference", {
+", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ courseId, buyerEmail: email })
