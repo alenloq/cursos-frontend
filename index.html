@@ -13,27 +13,26 @@
   </header>
 
   <main>
-    <div id="courses" class="grid">
-      <div class="card">
-        <h2>Porcelana Fría - Nivel Básico</h2>
-        <p>Aprendé a modelar porcelana desde cero.</p>
-        <p><strong>$2000 ARS</strong></p>
-        <button onclick="comprar('porcelana')">Comprar</button>
-      </div>
-
-      <div class="card">
-        <h2>Modelado Avanzado</h2>
-        <p>Técnicas y acabados profesionales.</p>
-        <p><strong>$3500 ARS</strong></p>
-        <button onclick="comprar('modelado')">Comprar</button>
-      </div>
-    </div>
+    <div id="courses" class="grid"></div>
   </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <p><strong id="modalPrice"></strong></p>
+      <button id="modalBuy">Comprar</button>
+    </div>
+  </div>
 
   <footer style="text-align:center;margin-top:50px;color:#666;font-size:0.9rem">
     © 2025 Cursos Digitales · Todos los derechos reservados
   </footer>
 
+  <script src="cursos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
