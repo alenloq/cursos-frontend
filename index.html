@@ -4,26 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Catálogo de Cursos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🎓 Catálogo de Cursos</h1>
+  <header>
+    <h1>🎓 Catálogo de Cursos</h1>
+  </header>
 
-  <div id="courses" class="grid">
-    <div class="card">
-      <h2>Porcelana Fría - Nivel Básico</h2>
-      <p>Aprendé a modelar porcelana desde cero.</p>
-      <p><strong>$2000 ARS</strong></p>
-      <button onclick="comprar('porcelana')">Comprar</button>
-    </div>
+  <main>
+    <div id="courses" class="grid">
+      <div class="card">
+        <h2>Porcelana Fría - Nivel Básico</h2>
+        <p>Aprendé a modelar porcelana desde cero.</p>
+        <p><strong>$2000 ARS</strong></p>
+        <button onclick="comprar('porcelana')">Comprar</button>
+      </div>
 
-    <div class="card">
-      <h2>Modelado Avanzado</h2>
-      <p>Técnicas y acabados profesionales.</p>
-      <p><strong>$3500 ARS</strong></p>
-      <button onclick="comprar('modelado')">Comprar</button>
+      <div class="card">
+        <h2>Modelado Avanzado</h2>
+        <p>Técnicas y acabados profesionales.</p>
+        <p><strong>$3500 ARS</strong></p>
+        <button onclick="comprar('modelado')">Comprar</button>
+      </div>
     </div>
-  </div>
+  </main>
+
+  <footer style="text-align:center;margin-top:50px;color:#666;font-size:0.9rem">
+    © 2025 Cursos Digitales · Todos los derechos reservados
+  </footer>
 
   <script src="script.js"></script>
 </body>
