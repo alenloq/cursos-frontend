@@ -4,7 +4,7 @@ const cursos = [
     titulo: "Porcelana Fría - Nivel Básico",
     descripcion: "Aprendé a modelar porcelana desde cero. Incluye técnicas, materiales y moldes.",
     precio: 2000,
-    imagen: "./imagenes/porcelana.png"
+    imagen: "https://via.placeholder.com/400x250?text=Porcelana+Básico"
   },
   {
     id: "modelado",
@@ -21,4 +21,3 @@ const cursos = [
     imagen: "https://via.placeholder.com/400x250?text=Flores+de+Porcelana"
   }
 ];
-

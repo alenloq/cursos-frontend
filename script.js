@@ -1,4 +1,5 @@
-const coursesContainer = document.getElementById("courses");
+const container = document.getElementById("courses");
+const buscador = document.getElementById("buscador");
 const modal = document.getElementById("modal");
 const closeModal = document.getElementById("closeModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -7,19 +8,25 @@ const modalPrice = document.getElementById("modalPrice");
 const modalImg = document.getElementById("modalImg");
 const modalBuy = document.getElementById("modalBuy");
 
-function renderCursos() {
-  cursos.forEach(curso => {
+function renderCursos(filtro = "") {
+  container.innerHTML = "";
+  const filtrados = cursos.filter(c =>
+    c.titulo.toLowerCase().includes(filtro.toLowerCase())
+  );
+  filtrados.forEach(curso => {
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.className = "card";
     card.innerHTML = `
       <img src="${curso.imagen}" alt="${curso.titulo}">
       <h2>${curso.titulo}</h2>
       <p><strong>$${curso.precio} ARS</strong></p>
     `;
-    card.addEventListener("click", () => abrirModal(curso));
-    coursesContainer.appendChild(card);
+    card.onclick = () => abrirModal(curso);
+    container.appendChild(card);
   });
 }
+
+buscador.addEventListener("input", e => renderCursos(e.target.value));
 
 function abrirModal(curso) {
   modalTitle.textContent = curso.titulo;
@@ -37,23 +44,18 @@ window.addEventListener("click", e => {
 
 renderCursos();
 
-/* ===== FUNCIÓN COMPRAR ===== */
 async function comprar(cursoId) {
   console.log("Iniciando compra para:", cursoId);
   try {
-    const response = await fetch("https://cursos-backend-tcfy.onrender.com/create-preference", {
+    const res = await fetch("https://cursos-backend-tcfy.onrender.com/create-preference", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cursoId })
     });
-    const data = await response.json();
-    if (data.init_point) {
-      window.location.href = data.init_point;
-    } else {
-      alert("Error al crear la preferencia de pago.");
-    }
+    const data = await res.json();
+    if (data.init_point) window.location.href = data.init_point;
+    else alert("Error al crear la preferencia de pago.");
   } catch (err) {
     console.error("Error al conectar con backend:", err);
   }
 }
-
